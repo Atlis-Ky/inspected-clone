@@ -79,12 +79,23 @@
   display: flex;
   align-items: center;
   gap: 40px; /* Adds spacing between elements */
+  font-size: 12px;
 }
 
 .icon-user,
 .icon-cart {
   text-decoration: none;
   color: #000;
+  
+}
+
+.icon-cart {
+  display: flex;
+  align-items: center;
+}
+
+.icon-cart i, .icon-user i {
+  margin-right: 5px; 
 }
 
 .icon-cart span {
@@ -107,7 +118,7 @@
   font-size: 14px;
   cursor: pointer;
   color: #000;
-  position: relative; /* Ensure the dropdown menu is positioned relative to the button */
+  font-size: 12px;
 }
 
 .dropdown-button span {
@@ -122,12 +133,12 @@
   margin: 0;
   padding: 0;
   background: #fff;
-  display: none; /* Hide the dropdown menu by default */
+  display: block;
 }
 
-.dropdown-button:hover .dropdown-menu,
-.dropdown-menu:hover {
-  display: block; /* Show the dropdown menu on hover */
+.dropdown-button:hover {
+  color: #d4a373;
+  transition: color 0.3s;
 }
 
 .dropdown-menu li {
