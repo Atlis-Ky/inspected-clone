@@ -1,0 +1,146 @@
+/* General Header Styling */
+.header {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+}
+
+/* Promo Banner */
+.promo-banner {
+  background: #f9f9f9;
+  padding: 0px;
+  font-size: 12px; /* Reduced font size */
+  display: flex;
+  justify-content: center; /* Center the text */
+  align-items: center;
+  position: relative; /* Keeps close button properly aligned */
+  margin-top: 0px;
+  transition: opacity 0.5s ease-out; /* Add transition for fade-out effect */
+}
+
+.promo-banner.fade-out {
+  opacity: 0; /* Fade out effect */
+}
+
+.promo-banner-close {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+}
+
+/* Header Content */
+.header-content {
+  padding: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+}
+
+/* Logo Styling */
+.logo-container {
+  text-align: center;
+  margin-bottom: 10px; /* Ensure separation from the nav menu */
+}
+
+.logo-container img {
+  height: 60px;
+  max-width: 100%;
+}
+
+/* Navigation Menu Styling */
+.nav-menu {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  font-size: 12px;
+  margin: 0 auto;
+  padding: 0;
+  justify-content: center;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: #000;
+  transition: color 0.3s;
+}
+
+.nav-menu li a:hover {
+  color: #d4a373; /* Match hover color */
+}
+
+/* Header Right Section */
+.header-right {
+  position: absolute;
+  top: 10px; /* Aligns to the top-right, just below promo banner */
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 40px; /* Adds spacing between elements */
+}
+
+.icon-user,
+.icon-cart {
+  text-decoration: none;
+  color: #000;
+}
+
+.icon-cart span {
+  background: #d4a373;
+  border-radius: 50%;
+  padding: 5px 8px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Dropdown Styling */
+.currency-dropdown {
+  position: relative;
+}
+
+.dropdown-button {
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  color: #000;
+  position: relative; /* Ensure the dropdown menu is positioned relative to the button */
+}
+
+.dropdown-button span {
+  margin-left: 5px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  display: none; /* Hide the dropdown menu by default */
+}
+
+.dropdown-button:hover .dropdown-menu,
+.dropdown-menu:hover {
+  display: block; /* Show the dropdown menu on hover */
+}
+
+.dropdown-menu li {
+  padding: 5px 15px;
+}
+
+.dropdown-menu li a {
+  text-decoration: none;
+  color: #000;
+  display: block;
+}
+
+.dropdown-menu li a:hover {
+  color: #d4a373; /* Match hover color */
+  background: none;
+}
