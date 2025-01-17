@@ -30,17 +30,19 @@ const ProductCard = ({ primaryImage, secondaryImage, name, price }) => {
   }, [isHovered, primaryImage, secondaryImage]);
 
   return (
-    <div
-      className="product-card"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div className="product-image">
-        <img src={currentImage} alt={name} className="product-img" />
+    
+      <div
+        className="product-card"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <div className="product-image">
+          <img src={currentImage} alt={name} className="product-img" />
+        </div>
+        <div className="product-name">{name}</div>
+        <div className="product-price">£{price}</div>
       </div>
-      <div className="product-name">{name}</div>
-      <div className="product-price">£{price}</div>
-    </div>
+    
   );
 };
 
