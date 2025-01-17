@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import "./Header.css";
 
-const Header = () => {
+const Header = ({ onCurrencyChange }) => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isPromoBannerVisible, setPromoBannerVisible] = useState(true);
   const [isFadingOut, setFadingOut] = useState(false);
   const [selectedCurrency, setSelectedCurrency] = useState("GBP");
-
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
@@ -22,8 +21,8 @@ const Header = () => {
   const selectCurrency = (currency) => {
     setSelectedCurrency(currency);
     setDropdownOpen(false);
+    onCurrencyChange(currency); // Notify parent component of the currency change
   };
-
 
   return (
     <header className="header">
@@ -64,23 +63,42 @@ const Header = () => {
         </ul>
 
         {/* Right Section */}
-        
         <div className="header-right">
           {/* Currency Dropdown */}
           <div className="currency-dropdown">
-        <button className="dropdown-button" onClick={toggleDropdown}>
-          {selectedCurrency} <span>▼</span>
-        </button>
-        {isDropdownOpen && (
-          <ul className="dropdown-menu">
-            <li><a href="#" onClick={() => selectCurrency("USD")}>USD</a></li>
-            <li><a href="#" onClick={() => selectCurrency("AUD")}>AUD</a></li>
-            <li><a href="#" onClick={() => selectCurrency("GBP")}>GBP</a></li>
-            <li><a href="#" onClick={() => selectCurrency("EUR")}>EUR</a></li>
-            <li><a href="#" onClick={() => selectCurrency("JPY")}>JPY</a></li>
-          </ul>
-        )}
-      </div>
+            <button className="dropdown-button" onClick={toggleDropdown}>
+              {selectedCurrency} <span>▼</span>
+            </button>
+            {isDropdownOpen && (
+              <ul className="dropdown-menu">
+                <li>
+                  <a href="#" onClick={() => selectCurrency("USD")}>
+                    USD
+                  </a>
+                </li>
+                <li>
+                  <a href="#" onClick={() => selectCurrency("AUD")}>
+                    AUD
+                  </a>
+                </li>
+                <li>
+                  <a href="#" onClick={() => selectCurrency("GBP")}>
+                    GBP
+                  </a>
+                </li>
+                <li>
+                  <a href="#" onClick={() => selectCurrency("EUR")}>
+                    EUR
+                  </a>
+                </li>
+                <li>
+                  <a href="#" onClick={() => selectCurrency("JPY")}>
+                    JPY
+                  </a>
+                </li>
+              </ul>
+            )}
+          </div>
 
           {/* Login and Cart */}
           <a href="/account" className="icon-user">

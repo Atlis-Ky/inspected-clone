@@ -2,10 +2,7 @@ import React from "react";
 import ProductCard from "./ProductCard";
 import "./ProductCard.css";
 
-
-// PRODUCTS ARRAY
-
-const ProductList = () => {
+const ProductList = ({ currency }) => {
   const products = [
     {
       id: 1,
@@ -133,7 +130,6 @@ const ProductList = () => {
       name: "RACING AIR FRESHENER - MARBLE",
       price: "2.00",
     },
-    
   ];
 
   return (
@@ -145,6 +141,7 @@ const ProductList = () => {
           secondaryImage={product.secondaryImage}
           name={product.name}
           price={product.price}
+          currency={currency} // Pass currency as a prop, should fix the switcher?
         />
       ))}
     </div>
