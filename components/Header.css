@@ -1,25 +1,25 @@
-/* General Header Styling */
+
 .header {
   font-family: Arial, sans-serif;
   font-size: 14px;
   color: #000;
 }
 
-/* Promo Banner */
+
 .promo-banner {
   background: #f9f9f9;
   padding: 0px;
-  font-size: 12px; /* Reduced font size */
+  font-size: 12px; 
   display: flex;
-  justify-content: center; /* Center the text */
+  justify-content: center; 
   align-items: center;
-  position: relative; /* Keeps close button properly aligned */
+  position: relative; 
   margin-top: 0px;
-  transition: opacity 0.5s ease-out; /* Add transition for fade-out effect */
+  transition: opacity 0.5s ease-out;
 }
 
 .promo-banner.fade-out {
-  opacity: 0; /* Fade out effect */
+  opacity: 0; 
 }
 
 .promo-banner-close {
@@ -36,13 +36,13 @@
   padding: 20px;
   position: relative;
   display: flex;
-  flex-direction: column; /* Stack elements vertically */
+  flex-direction: column; /* Stacks elements vertically */
 }
 
-/* Logo Styling */
+
 .logo-container {
   text-align: center;
-  margin-bottom: 10px; /* Ensure separation from the nav menu */
+  margin-bottom: 10px; 
 }
 
 .logo-container img {
@@ -50,7 +50,7 @@
   max-width: 100%;
 }
 
-/* Navigation Menu Styling */
+
 .nav-menu {
   display: flex;
   gap: 20px;
@@ -68,7 +68,9 @@
 }
 
 .nav-menu li a:hover {
-  color: #d4a373; /* Match hover color */
+  color: #d4a373;
+  text-decoration: underline;
+  text-underline-offset: 15px; 
 }
 
 /* Header Right Section */
@@ -78,7 +80,7 @@
   right: 20px;
   display: flex;
   align-items: center;
-  gap: 40px; /* Adds spacing between elements */
+  gap: 40px; 
   font-size: 12px;
 }
 
@@ -107,7 +109,7 @@
   font-weight: bold;
 }
 
-/* Dropdown Styling */
+/* currency Dropdown + child bits */
 .currency-dropdown {
   position: relative;
 }
@@ -152,6 +154,6 @@
 }
 
 .dropdown-menu li a:hover {
-  color: #d4a373; /* Match hover color */
+  color: #d4a373; 
   background: none;
 }

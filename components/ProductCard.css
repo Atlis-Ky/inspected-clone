@@ -1,0 +1,57 @@
+.product-list {
+  display: flex;
+  flex-wrap: wrap; /* Ensures cards wrap to the next row */
+  justify-content: space-between; 
+}
+
+.product-card {
+  flex: 1 1 calc(33.333% - 2rem); /* Each card takes 1/3 of the row minus margin */
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  box-sizing: border-box;
+  
+}
+
+.product-image {
+  width: 100%;
+  aspect-ratio: auto 1500 / 2251;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-img {
+  width: 100%;
+  object-fit: contain;
+  object-position: top center;
+}
+
+.product-name {
+  font-size: 12px;
+  color: #5a5a5a;
+  margin: 0.5rem 0 0;
+  font-family:Helvetica,Helvetica Neue,Arial,Lucida Grande,sans-serif;
+}
+
+.product-price {
+  font-size: 12px;
+  color: #5a5a5a;
+  margin: 0.2rem 0;
+  font-family:Helvetica,Helvetica Neue,Arial,Lucida Grande,sans-serif;
+}
+
+/* media quiries for reduced screen size, should be 2 cards a row */
+@media screen and (max-width: 768px) {
+  .product-card {
+    flex: 1 1 calc(50% - 2rem); 
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .product-card {
+    flex: 1 1 100%; /* Each card takes full width on very small screens */
+  }
+}
