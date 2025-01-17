@@ -15,7 +15,7 @@ const Header = ({ onCurrencyChange }) => {
     setFadingOut(true);
     setTimeout(() => {
       setPromoBannerVisible(false);
-    }, 500); // Match the duration of the CSS transition
+    }, 500); 
   };
 
   const selectCurrency = (currency) => {
