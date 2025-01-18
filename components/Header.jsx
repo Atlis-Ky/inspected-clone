@@ -6,6 +6,10 @@ const Header = ({ onCurrencyChange }) => {
   const [isPromoBannerVisible, setPromoBannerVisible] = useState(true);
   const [isFadingOut, setFadingOut] = useState(false);
   const [selectedCurrency, setSelectedCurrency] = useState("GBP");
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loggedInUser, setLoggedInUser] = useState("");
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
@@ -15,13 +19,23 @@ const Header = ({ onCurrencyChange }) => {
     setFadingOut(true);
     setTimeout(() => {
       setPromoBannerVisible(false);
-    }, 500); 
+    }, 500);
   };
 
   const selectCurrency = (currency) => {
     setSelectedCurrency(currency);
     setDropdownOpen(false);
     onCurrencyChange(currency); // Notify parent component of the currency change
+  };
+
+  const handleLoginClick = () => {
+    setModalOpen(true);
+  };
+
+  const handleLoginSubmit = (e) => {
+    e.preventDefault();
+    setLoggedInUser(username);
+    setModalOpen(false);
   };
 
   return (
@@ -49,16 +63,16 @@ const Header = ({ onCurrencyChange }) => {
         {/* Navigation Menu */}
         <ul className="nav-menu">
           <li>
-            <a href="/collections/all">Store</a>
+            <a>Store</a>
           </li>
           <li>
-            <a href="/collections/music">Music</a>
+            <a>Music</a>
           </li>
           <li>
-            <a href="/blogs/journal">Journal</a>
+            <a>Journal</a>
           </li>
           <li>
-            <a href="/pages/contact">Contact</a>
+            <a>Contact</a>
           </li>
         </ul>
 
@@ -101,14 +115,40 @@ const Header = ({ onCurrencyChange }) => {
           </div>
 
           {/* Login and Cart */}
-          <a href="/account" className="icon-user">
-            <i className="fas fa-user"></i> Login
-          </a>
+          <div className="icon-user" onClick={handleLoginClick}>
+            <i className="fas fa-user"></i> {loggedInUser || "Login"}
+          </div>
           <a href="/cart" className="icon-cart">
             <i className="fas fa-shopping-cart"></i> <span>0</span>
           </a>
         </div>
       </div>
+
+      {/* Login Modal */}
+      {isModalOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <h2>Login</h2>
+            <form onSubmit={handleLoginSubmit}>
+              <input
+                type="text"
+                placeholder="Make up a username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+              <input
+                type="password"
+                placeholder="Make up a password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

@@ -2,11 +2,18 @@ import React, { useState, useEffect } from "react";
 import Header from "./Header.jsx";
 import "./ProductCard.css";
 
-const ProductCard = ({ primaryImage, secondaryImage, name, price, currency }) => {
+const ProductCard = ({
+  primaryImage,
+  secondaryImage,
+  name,
+  price,
+  currency,
+}) => {
   const [currentImage, setCurrentImage] = useState(primaryImage);
   const [isHovered, setIsHovered] = useState(false);
 
   // Determine the currency symbol
+
   const getCurrencySymbol = () => {
     if (currency === "USD") return "$";
     if (currency === "AUD") return "AU$";

@@ -1,9 +1,9 @@
-import React from 'react';
-import './GhostHeader.css';
+import React from "react";
+import "./GhostHeader.css";
 
 const GhostHeader = () => {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -15,10 +15,18 @@ const GhostHeader = () => {
         />
       </div>
       <ul className="ghost-nav-menu">
-        <li><a href="/collections/all">Store</a></li>
-        <li><a href="/collections/music">Music</a></li>
-        <li><a href="/blogs/journal">Journal</a></li>
-        <li><a href="/pages/contact">Contact</a></li>
+        <li>
+          <a>Store</a>
+        </li>
+        <li>
+          <a>Music</a>
+        </li>
+        <li>
+          <a>Journal</a>
+        </li>
+        <li>
+          <a>Contact</a>
+        </li>
       </ul>
       <a href="/cart" className="ghost-cart-icon">
         <i className="fas fa-shopping-cart"></i>

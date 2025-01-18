@@ -46,7 +46,8 @@ const Footer = () => {
       <div className="footer-bottom">
         <p>2025: React clone made by Atlis-Ky.</p>
         <p>
-          Please consider <strong>offering me the job</strong> if you think I can be a good fit for the team :D
+          Please consider <strong>offering me the job</strong> if you think I
+          can be a good fit for the team :D
         </p>
       </div>
     </footer>

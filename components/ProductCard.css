@@ -1,11 +1,8 @@
-
-
-
 .product-list {
   display: flex;
   padding: 0px 70px;
   flex-wrap: wrap; /* Ensures cards wrap to the next row */
-  justify-content: space-between; 
+  justify-content: space-between;
 }
 
 .product-card {
@@ -16,7 +13,7 @@
   align-items: flex-start;
   text-align: left;
   box-sizing: border-box;
-  
+  cursor: pointer;
 }
 
 .product-image {
@@ -36,22 +33,21 @@
 .product-name {
   font-size: 12px;
   color: #5a5a5a;
-  font-family:Helvetica,Helvetica Neue,Arial,Lucida Grande,sans-serif;
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
   margin: 0.5rem 0 0;
-  
 }
 
 .product-price {
   font-size: 12px;
   color: #5a5a5a;
   margin: 0.2rem 0;
-  font-family:Helvetica,Helvetica Neue,Arial,Lucida Grande,sans-serif;
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
 }
 
 /* media quiries for reduced screen size, should be 2 cards a row */
 @media screen and (max-width: 768px) {
   .product-card {
-    flex: 1 1 calc(50% - 2rem); 
+    flex: 1 1 calc(50% - 2rem);
   }
 }
 
