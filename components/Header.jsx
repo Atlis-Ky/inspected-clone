@@ -38,6 +38,10 @@ const Header = ({ onCurrencyChange }) => {
     setModalOpen(false);
   };
 
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
   return (
     <header className="header">
       {/* Promo Banner */}
@@ -128,6 +132,7 @@ const Header = ({ onCurrencyChange }) => {
       {isModalOpen && (
         <div className="modal">
           <div className="modal-content">
+            <button className="modal-close" onClick={closeModal}>Exit</button>
             <h2>Login</h2>
             <form onSubmit={handleLoginSubmit}>
               <input
