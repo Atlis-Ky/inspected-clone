@@ -122,7 +122,7 @@ const Header = ({ onCurrencyChange }) => {
           <div className="icon-user" onClick={handleLoginClick}>
             <i className="fas fa-user"></i> {loggedInUser || "Login"}
           </div>
-          <a href="/cart" className="icon-cart">
+          <a className="icon-cart">
             <i className="fas fa-shopping-cart"></i> <span>0</span>
           </a>
         </div>
