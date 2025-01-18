@@ -1,10 +1,14 @@
-import React from "react";
-import "./GhostHeader.css";
+import React from 'react';
+import './GhostHeader.css';
 
 const GhostHeader = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="ghost-header">
-      <div className="ghost-logo-container">
+      <div className="ghost-logo-container" onClick={scrollToTop}>
         <img
           src="https://inspected.co.uk/cdn/shop/files/inspected-classic-logo-400-x-200-_web_410x.png"
           alt="Inspected"
