@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Header.css";
 
-const Header = ({ onCurrencyChange }) => {
+const Header = ({ onCurrencyChange, cartCount }) => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isPromoBannerVisible, setPromoBannerVisible] = useState(true);
   const [isFadingOut, setFadingOut] = useState(false);
@@ -123,8 +123,8 @@ const Header = ({ onCurrencyChange }) => {
             <i className="fas fa-user"></i> {loggedInUser || "Login"}
           </div>
           <a className="icon-cart">
-            <i className="fas fa-shopping-cart"></i> <span>0</span>
-          </a>
+          <i className="fas fa-shopping-cart"></i> <span>{cartCount}</span>
+        </a>
         </div>
       </div>
 

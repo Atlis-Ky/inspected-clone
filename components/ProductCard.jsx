@@ -8,6 +8,7 @@ const ProductCard = ({
   name,
   price,
   currency,
+  incrementCart,
 }) => {
   const [currentImage, setCurrentImage] = useState(primaryImage);
   const [isHovered, setIsHovered] = useState(false);
@@ -55,7 +56,7 @@ const ProductCard = ({
       </div>
       {/* Conditionally render Add to Cart or Name/Price */}
       {isHovered ? (
-        <button className="add-to-cart-btn">ADD TO CART</button>
+        <button className="add-to-cart-btn" onClick={incrementCart}>ADD TO CART</button>
       ) : (
         <>
           <div className="product-name">{name}</div>

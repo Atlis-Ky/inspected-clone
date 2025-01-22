@@ -2,7 +2,7 @@ import React from "react";
 import ProductCard from "./ProductCard";
 import "./ProductCard.css";
 
-const ProductList = ({ currency }) => {
+const ProductList = ({ currency, incrementCart }) => {
   const products = [
     {
       id: 1,
@@ -142,6 +142,7 @@ const ProductList = ({ currency }) => {
           name={product.name}
           price={product.price}
           currency={currency} // Pass currency as a prop, should fix the switcher?
+          incrementCart={incrementCart}
         />
       ))}
     </div>

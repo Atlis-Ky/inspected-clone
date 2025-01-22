@@ -1,7 +1,7 @@
 import React from "react";
 import "./GhostHeader.css";
 
-const GhostHeader = () => {
+const GhostHeader = ({ cartCount }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -30,7 +30,7 @@ const GhostHeader = () => {
       </ul>
       <a href="/cart" className="ghost-cart-icon">
         <i className="fas fa-shopping-cart"></i>
-        <span>0</span>
+        <span>{cartCount}</span>
       </a>
     </div>
   );
