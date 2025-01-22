@@ -53,11 +53,18 @@ const ProductCard = ({
       <div className="product-image">
         <img src={currentImage} alt={name} className="product-img" />
       </div>
-      <div className="product-name">{name}</div>
-      <div className="product-price">
-        {getCurrencySymbol()}
-        {price}
-      </div>
+      {/* Conditionally render Add to Cart or Name/Price */}
+      {isHovered ? (
+        <button className="add-to-cart-btn">ADD TO CART</button>
+      ) : (
+        <>
+          <div className="product-name">{name}</div>
+          <div className="product-price">
+            {getCurrencySymbol()}
+            {price}
+          </div>
+        </>
+      )}
     </div>
   );
 };
