@@ -1,6 +1,24 @@
 import React from "react";
 import "./Footer.css";
 
+// Event Handlers for Main Menu
+
+const handleStoreClick = () => {
+  alert("You're already on the store page!");
+};
+
+const handleMusicClick = () => {
+  alert("This would have taken you to an external web store link to purchase Inspected releases.");
+};
+
+const handleJournalClick = () => {
+  alert("This would have taken you to an external blog for Inspected music and clothing releases.");
+};
+
+const handleContactClick = () => {
+  alert("This would lead to a contact sheet to get in touch with the guys at Inspected with all of their E-mail's, but we won't actually be buying anything on this web-clone :)");
+};
+
 const Footer = () => {
   return (
     <footer className="footer">
@@ -8,10 +26,18 @@ const Footer = () => {
         <div className="footer-section">
           <h4 className="footer-title">MAIN MENU</h4>
           <ul className="footer-list">
-            <li>Store</li>
-            <li>Music</li>
-            <li>Journal</li>
-            <li>Contact</li>
+          <li onClick={handleStoreClick}>
+            <a>Store</a>
+          </li>
+          <li onClick={handleMusicClick}>
+            <a>Music</a>
+          </li>
+          <li onClick={handleJournalClick}>
+            <a>Journal</a>
+          </li>
+          <li onClick={handleContactClick}>
+            <a>Contact</a>
+          </li>
           </ul>
         </div>
         <div className="footer-section">
