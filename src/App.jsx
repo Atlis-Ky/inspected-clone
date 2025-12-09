@@ -66,7 +66,15 @@ function App() {
           }
         />
         <Route path="/cart" element={<CartPage />} />
-        <Route path="/music" element={<MusicPage />} />
+        <Route
+          path="/music"
+          element={
+            <MusicPage
+              currency={selectedCurrency}
+              incrementCart={incrementCart}
+            />
+          }
+        />
         <Route path="/journal" element={<JournalPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>

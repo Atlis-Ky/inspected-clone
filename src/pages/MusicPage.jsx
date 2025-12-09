@@ -1,17 +1,11 @@
 import React from "react";
+import MusicList from "../../components/MusicList";
 import "./MusicPage.css";
 
-const MusicPage = () => {
+const MusicPage = ({ currency, incrementCart }) => {
   return (
     <div className="music-page">
-      <div className="music-container">
-        <h1>Music</h1>
-        <p>Discover our collection of vinyl records and music releases.</p>
-        <p style={{ color: "#999", fontSize: "14px" }}>
-          Content coming soon! This page will showcase music products and
-          releases.
-        </p>
-      </div>
+      <MusicList currency={currency} incrementCart={incrementCart} />
     </div>
   );
 };

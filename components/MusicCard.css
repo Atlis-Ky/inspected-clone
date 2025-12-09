@@ -1,0 +1,102 @@
+/* Music Card Grid Layout */
+.music-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Individual Music Card */
+.music-card {
+  flex: 1 1 calc(33.333% - 2rem);
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+/* Square Image Container for Vinyl/Music */
+.music-image {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Square format for album covers */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.music-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Music Name */
+.music-name {
+  font-size: 12px;
+  color: #5a5a5a;
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  margin: 0.5rem 0 0;
+}
+
+/* Music Price */
+.music-price {
+  font-size: 12px;
+  color: #5a5a5a;
+  margin: 0.2rem 0;
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+}
+
+/* Add to Cart Button */
+.add-to-cart-btn-music {
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  background: transparent;
+  border: 1px solid #000;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background-color 0.3s, color 0.3s;
+  width: 100%;
+  text-align: center;
+}
+
+.add-to-cart-btn-music:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Responsive Design - Tablet */
+@media screen and (max-width: 1024px) {
+  .music-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+}
+
+/* Responsive Design - Mobile */
+@media screen and (max-width: 768px) {
+  .music-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .music-card {
+    margin: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .music-list {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
