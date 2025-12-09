@@ -1,25 +1,23 @@
-
 .header {
   font-family: Arial, sans-serif;
   font-size: 14px;
   color: #000;
 }
 
-
 .promo-banner {
   background: #f9f9f9;
   padding: 0px;
-  font-size: 12px; 
+  font-size: 12px;
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
-  position: relative; 
+  position: relative;
   margin-top: 0px;
   transition: opacity 0.5s ease-out;
 }
 
 .promo-banner.fade-out {
-  opacity: 0; 
+  opacity: 0;
 }
 
 .promo-banner-close {
@@ -31,25 +29,25 @@
   right: 10px;
 }
 
-
 .header-content {
   padding: 20px;
   position: relative;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
 }
-
 
 .logo-container {
   text-align: center;
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
 }
 
 .logo-container img {
   height: 60px;
   max-width: 100%;
 }
-
 
 .nav-menu {
   display: flex;
@@ -71,17 +69,17 @@
 .nav-menu li a:hover {
   color: #d4a373;
   text-decoration: underline;
-  text-underline-offset: 15px; 
+  text-underline-offset: 15px;
 }
 
 /* Header Right Section */
 .header-right {
   position: absolute;
-  top: 10px; 
+  top: 10px;
   right: 20px;
   display: flex;
   align-items: center;
-  gap: 40px; 
+  gap: 40px;
   font-size: 12px;
 }
 
@@ -90,7 +88,6 @@
   text-decoration: none;
   color: #000;
   cursor: pointer;
-  
 }
 
 .icon-cart {
@@ -98,14 +95,15 @@
   align-items: center;
 }
 
-.icon-user:hover, .icon-cart:hover {
+.icon-user:hover,
+.icon-cart:hover {
   color: #d4a373;
   transition: color 0.3s;
 }
 
-
-.icon-cart i, .icon-user i {
-  margin-right: 5px; 
+.icon-cart i,
+.icon-user i {
+  margin-right: 5px;
 }
 
 .icon-cart span {
@@ -162,7 +160,7 @@
 }
 
 .dropdown-menu li a:hover {
-  color: #d4a373; 
+  color: #d4a373;
   background: none;
 }
 
@@ -183,10 +181,10 @@
 .modal-content {
   background: #fff;
   padding: 20px;
-  border-radius: 0; 
+  border-radius: 0;
   text-align: center;
-  width: 300px; 
-  box-sizing: border-box; 
+  width: 300px;
+  box-sizing: border-box;
 }
 
 .modal-content input {
@@ -195,8 +193,8 @@
   margin: 10px 0;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 0; 
-  box-sizing: border-box; 
+  border-radius: 0;
+  box-sizing: border-box;
 }
 
 .modal-content button {
@@ -205,16 +203,22 @@
   background: #333;
   color: #fff;
   cursor: pointer;
-  border-radius: 0; 
-  width: 100%; 
-  box-sizing: border-box; 
+  border-radius: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .modal-content button:active {
-  background: #d4a373; 
+  background: #d4a373;
 }
 
-.modal-close{
-  
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  width: auto;
 }
-

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Header.css";
 
 const Header = ({ onCurrencyChange, cartCount }) => {
@@ -44,24 +45,6 @@ const Header = ({ onCurrencyChange, cartCount }) => {
     setModalOpen(false);
   };
 
-
-  // Event Handlers for Navigation Menu
-  const handleStoreClick = () => {
-    alert("You're already on the store page!");
-  };
-
-  const handleMusicClick = () => {
-    alert("This would have taken you to an external web store link to purchase Inspected releases.");
-  };
-
-  const handleJournalClick = () => {
-    alert("This would have taken you to an external blog for Inspected music and clothing releases.");
-  };
-
-  const handleContactClick = () => {
-    alert("This would lead to a contact sheet to get in touch with the guys at Inspected with all of their E-mail's, but we won't actually be buying anything on this web-clone :)");
-  };
-
   return (
     <header className="header">
       {/* Promo Banner */}
@@ -77,26 +60,26 @@ const Header = ({ onCurrencyChange, cartCount }) => {
       {/* Header Content */}
       <div className="header-content">
         {/* Logo Section */}
-        <div className="logo-container">
+        <Link to="/" className="logo-container">
           <img
             src="https://inspected.co.uk/cdn/shop/files/inspected-classic-logo-400-x-200-_web_410x.png"
             alt="Inspected"
           />
-        </div>
+        </Link>
 
         {/* Navigation Menu */}
         <ul className="nav-menu">
-          <li onClick={handleStoreClick}>
-            <a>Store</a>
+          <li>
+            <Link to="/">Store</Link>
           </li>
-          <li onClick={handleMusicClick}>
-            <a>Music</a>
+          <li>
+            <Link to="/music">Music</Link>
           </li>
-          <li onClick={handleJournalClick}>
-            <a>Journal</a>
+          <li>
+            <Link to="/journal">Journal</Link>
           </li>
-          <li onClick={handleContactClick}>
-            <a>Contact</a>
+          <li>
+            <Link to="/contact">Contact</Link>
           </li>
         </ul>
 
@@ -142,9 +125,9 @@ const Header = ({ onCurrencyChange, cartCount }) => {
           <div className="icon-user" onClick={handleLoginClick}>
             <i className="fas fa-user"></i> {loggedInUser || "Login"}
           </div>
-          <a className="icon-cart">
-          <i className="fas fa-shopping-cart"></i> <span>{cartCount}</span>
-        </a>
+          <Link to="/cart" className="icon-cart">
+            <i className="fas fa-shopping-cart"></i> <span>{cartCount}</span>
+          </Link>
         </div>
       </div>
 
@@ -152,7 +135,9 @@ const Header = ({ onCurrencyChange, cartCount }) => {
       {isModalOpen && (
         <div className="modal">
           <div className="modal-content">
-            <button className="modal-close" onClick={closeModal}>Exit</button>
+            <button className="modal-close" onClick={closeModal}>
+              Exit
+            </button>
             <h2>Login</h2>
             <form onSubmit={handleLoginSubmit}>
               <input
