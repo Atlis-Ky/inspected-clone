@@ -11,13 +11,160 @@
 .contact-container h1 {
   font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
   font-size: 32px;
-  margin-bottom: 20px;
-  text-align: center;
+  margin-bottom: 40px;
+  text-align: left;
+  font-weight: normal;
+  letter-spacing: 2px;
 }
 
-.contact-container p {
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-top: 40px;
+}
+
+/* Left Side - Contact Info */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.company-info,
+.contact-emails {
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #5a5a5a;
+}
+
+.company-name {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.contact-emails p {
+  margin: 8px 0;
+}
+
+.contact-emails a {
+  color: #5a5a5a;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-emails a:hover {
+  color: #d4a373;
+}
+
+.contact-emails strong {
+  font-weight: 600;
+}
+
+/* Right Side - Contact Form */
+.contact-form-container {
+  background: #f9f9f9;
+  padding: 30px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.required {
+  color: #d4a373;
+}
+
+.form-group input,
+.form-group textarea {
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 14px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  background: #fff;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #d4a373;
+}
+
+.form-group input.error,
+.form-group textarea.error {
+  border-color: #d32f2f;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.error-message {
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 12px;
+  color: #d32f2f;
+  margin-top: 5px;
+}
+
+.submit-button {
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 15px 40px;
+  background: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  align-self: flex-start;
+}
+
+.submit-button:hover {
+  background: #d4a373;
+}
+
+.success-message {
+  background: #4caf50;
+  color: white;
+  padding: 20px;
   text-align: center;
   font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
   font-size: 16px;
-  margin: 10px 0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .contact-container h1 {
+    font-size: 24px;
+  }
+
+  .contact-form-container {
+    padding: 20px;
+  }
 }
