@@ -1,8 +1,10 @@
 import React from "react";
+import { useCart } from "../src/context/CartContext";
 import MusicCard from "./MusicCard";
 import "./MusicCard.css";
 
-const MusicList = ({ currency, incrementCart }) => {
+const MusicList = ({ currency }) => {
+  const { addToCart } = useCart();
   const musicItems = [
     {
       id: 1,
@@ -105,7 +107,14 @@ const MusicList = ({ currency, incrementCart }) => {
           name={item.name}
           price={item.price}
           currency={currency}
-          incrementCart={incrementCart}
+          onAddToCart={() =>
+            addToCart({
+              id: item.id,
+              name: item.name,
+              price: parseFloat(item.price),
+              image: item.image,
+            })
+          }
         />
       ))}
     </div>

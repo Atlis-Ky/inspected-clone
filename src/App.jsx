@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { CartProvider } from "./context/CartContext";
 
 import Header from "../components/Header";
 import GhostHeader from "../components/GhostHeader";
@@ -20,14 +21,6 @@ function App() {
   // ref to track the Header element for the IntersectionObserver
   const headerRef = useRef(null);
 
-  // another useState for cart counter on button clicks
-  const [cartCount, setCartCount] = useState(0);
-
-  // Function to increment cart count
-  const incrementCart = () => {
-    setCartCount((prevCount) => prevCount + 1);
-  };
-
   // Function to update the selected currency
   const handleCurrencyChange = (currency) => {
     setSelectedCurrency(currency);
@@ -46,41 +39,30 @@ function App() {
 
   // MAIN RENDER BLOCK
   return (
-    <Router>
-      <div ref={headerRef}>
-        {/* Pass cartCount and handleCurrencyChange to the Header */}
-        <Header onCurrencyChange={handleCurrencyChange} cartCount={cartCount} />
-      </div>
-      {/* Conditionally render GhostHeader with cartCount */}
-      {showGhostHeader && <GhostHeader cartCount={cartCount} />}
+    <CartProvider>
+      <Router>
+        <div ref={headerRef}>
+          {/* Pass handleCurrencyChange to the Header */}
+          <Header onCurrencyChange={handleCurrencyChange} />
+        </div>
+        {/* Conditionally render GhostHeader */}
+        {showGhostHeader && <GhostHeader />}
 
-      {/* Routes */}
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <StorePage
-              currency={selectedCurrency}
-              incrementCart={incrementCart}
-            />
-          }
-        />
-        <Route path="/cart" element={<CartPage />} />
-        <Route
-          path="/music"
-          element={
-            <MusicPage
-              currency={selectedCurrency}
-              incrementCart={incrementCart}
-            />
-          }
-        />
-        <Route path="/journal" element={<JournalPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-      </Routes>
+        {/* Routes */}
+        <Routes>
+          <Route path="/" element={<StorePage currency={selectedCurrency} />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route
+            path="/music"
+            element={<MusicPage currency={selectedCurrency} />}
+          />
+          <Route path="/journal" element={<JournalPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
 
-      <Footer />
-    </Router>
+        <Footer />
+      </Router>
+    </CartProvider>
   );
 }
 

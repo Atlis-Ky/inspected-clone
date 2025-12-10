@@ -1,8 +1,11 @@
-import React,   { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useCart } from "../src/context/CartContext";
 import "./Header.css";
 
-const Header = ({ onCurrencyChange, cartCount }) => {
+const Header = ({ onCurrencyChange }) => {
+  const { getCartCount } = useCart();
+  const cartCount = getCartCount();
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isPromoBannerVisible, setPromoBannerVisible] = useState(true);
   const [isFadingOut, setFadingOut] = useState(false);

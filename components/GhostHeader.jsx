@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useCart } from "../src/context/CartContext";
 import "./GhostHeader.css";
 
-const GhostHeader = ({ cartCount }) => {
+const GhostHeader = () => {
+  const { getCartCount } = useCart();
+  const cartCount = getCartCount();
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };

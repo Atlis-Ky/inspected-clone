@@ -1,8 +1,10 @@
 import React from "react";
+import { useCart } from "../src/context/CartContext";
 import ProductCard from "./ProductCard";
 import "./ProductCard.css";
 
-const ProductList = ({ currency, incrementCart }) => {
+const ProductList = ({ currency }) => {
+  const { addToCart } = useCart();
   const products = [
     {
       id: 1,
@@ -142,7 +144,14 @@ const ProductList = ({ currency, incrementCart }) => {
           name={product.name}
           price={product.price}
           currency={currency} // Pass currency as a prop, should fix the switcher?
-          incrementCart={incrementCart}
+          onAddToCart={() =>
+            addToCart({
+              id: product.id,
+              name: product.name,
+              price: parseFloat(product.price),
+              image: product.primaryImage,
+            })
+          }
         />
       ))}
     </div>

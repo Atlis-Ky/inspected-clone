@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./MusicCard.css";
 
-const MusicCard = ({ image, name, price, currency, incrementCart }) => {
+const MusicCard = ({ image, name, price, currency, onAddToCart }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const getCurrencySymbol = () => {
@@ -24,7 +24,7 @@ const MusicCard = ({ image, name, price, currency, incrementCart }) => {
         <img src={image} alt={name} className="music-img" />
       </div>
       {isHovered ? (
-        <button className="add-to-cart-btn-music" onClick={incrementCart}>
+        <button className="add-to-cart-btn-music" onClick={onAddToCart}>
           ADD TO CART
         </button>
       ) : (

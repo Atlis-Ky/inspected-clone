@@ -8,16 +8,145 @@
   margin: 0 auto;
 }
 
-.cart-container h1 {
+/* Cart Title */
+.cart-title {
+  font-size: 20px;
+  color: #5a5a5a;
   font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
-  font-size: 32px;
-  margin-bottom: 20px;
+  font-weight: 500;
   text-align: center;
+  margin-bottom: 20px;
 }
 
-.cart-container p {
+/* Empty Cart State */
+.empty-cart {
   text-align: center;
+  padding: 60px 20px;
+}
+
+.empty-cart p {
   font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
   font-size: 16px;
-  margin: 10px 0;
+  color: #5a5a5a;
+  margin-bottom: 30px;
+}
+
+.continue-shopping-link {
+  display: inline-block;
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #5a5a5a;
+  text-decoration: none;
+  padding: 12px 30px;
+  border: 1px solid #5a5a5a;
+  transition: all 0.3s;
+  letter-spacing: 1px;
+}
+
+.continue-shopping-link:hover {
+  background: #5a5a5a;
+  color: #fff;
+}
+
+/* Cart Items List */
+.cart-items-list {
+  background: #fff;
+  margin-bottom: 40px;
+  border: 1px solid #e5e5e5;
+}
+
+/* Cart Summary */
+.cart-summary {
+  max-width: 400px;
+  margin-left: auto;
+  padding: 30px;
+  background: #f9f9f9;
+  border: 1px solid #e5e5e5;
+}
+
+.cart-subtotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #5a5a5a;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.cart-note {
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 12px;
+  color: #999;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Checkout Button */
+.checkout-button {
+  display: block;
+  width: 100%;
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background: #5a5a5a;
+  text-decoration: none;
+  text-align: center;
+  padding: 15px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.checkout-button:hover {
+  background: #000;
+}
+
+/* Continue Shopping Link */
+.continue-shopping {
+  display: block;
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 14px;
+  color: #5a5a5a;
+  text-decoration: none;
+  text-align: center;
+  transition: color 0.3s;
+}
+
+.continue-shopping:hover {
+  color: #000;
+}
+
+/* Responsive Design - Tablet */
+@media screen and (max-width: 1024px) {
+  .cart-title {
+    font-size: 28px;
+  }
+
+  .cart-summary {
+    max-width: 100%;
+  }
+}
+
+/* Responsive Design - Mobile */
+@media screen and (max-width: 768px) {
+  .cart-page {
+    padding: 20px 10px;
+  }
+
+  .cart-title {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  .cart-summary {
+    padding: 20px;
+  }
 }

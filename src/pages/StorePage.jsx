@@ -1,10 +1,10 @@
 import React from "react";
 import ProductList from "../../components/ProductList";
 
-const StorePage = ({ currency, incrementCart }) => {
+const StorePage = ({ currency }) => {
   return (
     <div className="store-page">
-      <ProductList currency={currency} incrementCart={incrementCart} />
+      <ProductList currency={currency} />
     </div>
   );
 };

@@ -2,10 +2,10 @@ import React from "react";
 import MusicList from "../../components/MusicList";
 import "./MusicPage.css";
 
-const MusicPage = ({ currency, incrementCart }) => {
+const MusicPage = ({ currency }) => {
   return (
     <div className="music-page">
-      <MusicList currency={currency} incrementCart={incrementCart} />
+      <MusicList currency={currency} />
     </div>
   );
 };
