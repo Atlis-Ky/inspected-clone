@@ -10,11 +10,12 @@
 
 .contact-container h1 {
   font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
-  font-size: 32px;
+  color: #5a5a5a;
+  font-size: 1.5rem;
   margin-bottom: 40px;
   text-align: left;
   font-weight: normal;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 
 .contact-content {
