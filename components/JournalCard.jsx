@@ -1,9 +1,9 @@
 import React from "react";
 import "./JournalCard.css";
 
-const JournalCard = ({ image, title, date }) => {
+const JournalCard = ({ image, title, date, onClick }) => {
   return (
-    <div className="journal-card">
+    <div className="journal-card" onClick={onClick}>
       <div className="journal-image">
         <img src={image} alt={title} className="journal-img" />
       </div>
