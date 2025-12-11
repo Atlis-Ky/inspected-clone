@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./ContactPage.css";
 
 const ContactPage = () => {
@@ -84,7 +84,10 @@ const ContactPage = () => {
             <div className="contact-emails">
               <p>
                 <strong>Note:</strong>{" "}
-                <a href="mailto:general@example.com">Putting some Placeholder emails so that the actual inboxes don't recieve emails</a>
+                <a href="mailto:general@example.com">
+                  Putting some Placeholder emails so that the actual inboxes
+                  don't recieve emails
+                </a>
               </p>
               <p>
                 <strong>General:</strong>{" "}

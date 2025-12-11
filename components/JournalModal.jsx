@@ -1,4 +1,3 @@
-import React from "react";
 import "./JournalModal.css";
 
 const JournalModal = ({ article, onClose }) => {

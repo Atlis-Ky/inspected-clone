@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./MusicCard.css";
 
 const MusicCard = ({ image, name, price, currency, onAddToCart }) => {

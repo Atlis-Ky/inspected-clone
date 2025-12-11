@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../src/context/CartContext";
 import "./GhostHeader.css";

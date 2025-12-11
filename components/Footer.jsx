@@ -1,4 +1,3 @@
-import React from "react";
 import "./Footer.css";
 
 // Event Handlers for Main Menu
@@ -8,15 +7,21 @@ const handleStoreClick = () => {
 };
 
 const handleMusicClick = () => {
-  alert("This would have taken you to an external web store link to purchase Inspected releases.");
+  alert(
+    "This would have taken you to an external web store link to purchase Inspected releases."
+  );
 };
 
 const handleJournalClick = () => {
-  alert("This would have taken you to an external blog for Inspected music and clothing releases.");
+  alert(
+    "This would have taken you to an external blog for Inspected music and clothing releases."
+  );
 };
 
 const handleContactClick = () => {
-  alert("This would lead to a contact sheet to get in touch with the guys at Inspected with all of their E-mail's, but we won't actually be buying anything on this web-clone :)");
+  alert(
+    "This would lead to a contact sheet to get in touch with the guys at Inspected with all of their E-mail's, but we won't actually be buying anything on this web-clone :)"
+  );
 };
 
 const Footer = () => {
@@ -26,18 +31,18 @@ const Footer = () => {
         <div className="footer-section">
           <h4 className="footer-title">MAIN MENU</h4>
           <ul className="footer-list">
-          <li onClick={handleStoreClick}>
-            <a>Store</a>
-          </li>
-          <li onClick={handleMusicClick}>
-            <a>Music</a>
-          </li>
-          <li onClick={handleJournalClick}>
-            <a>Journal</a>
-          </li>
-          <li onClick={handleContactClick}>
-            <a>Contact</a>
-          </li>
+            <li onClick={handleStoreClick}>
+              <a>Store</a>
+            </li>
+            <li onClick={handleMusicClick}>
+              <a>Music</a>
+            </li>
+            <li onClick={handleJournalClick}>
+              <a>Journal</a>
+            </li>
+            <li onClick={handleContactClick}>
+              <a>Contact</a>
+            </li>
           </ul>
         </div>
         <div className="footer-section">
@@ -73,7 +78,8 @@ const Footer = () => {
         <p>2025: React clone made by Atlis-Ky.</p>
         <p>
           Please consider <strong>offering me the job</strong> if you think I
-          can be a good fit for the team! You can also use code JOBOFFER to test the discount feature at checkout :D
+          can be a good fit for the team! You can also use code JOBOFFER to test
+          the discount feature at checkout :D
         </p>
       </div>
     </footer>

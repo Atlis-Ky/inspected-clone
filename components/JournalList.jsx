@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import JournalCard from "./JournalCard";
 import JournalModal from "./JournalModal";
 import "./JournalCard.css";
@@ -16,8 +16,7 @@ const JournalList = () => {
         "/assets/Inspecting-Tesseracts-2.jpg",
         // Add more images here as needed
       ],
-      content:
-        `Following the release of 'Injure Them', we sat down with TESSERACTS to ask some very important questions...
+      content: `Following the release of 'Injure Them', we sat down with TESSERACTS to ask some very important questions...
 
 1. Tell us everything there is to know about your new track "Injure Them"
 
@@ -151,7 +150,11 @@ Vorso 'Holonomy' is released 18th October 2023, as Inspected's 50th release.`,
       image: "/assets/Donuts1.jpg",
       title: "DONUTS & DINOSAURS",
       date: "June 01, 2023",
-      images: ["/assets/donuts2.jpg", "/assets/Donuts3.jpg", "/assets/Donuts4.jpg"],
+      images: [
+        "/assets/donuts2.jpg",
+        "/assets/Donuts3.jpg",
+        "/assets/Donuts4.jpg",
+      ],
       content: "Limited drop Donuts & Dinosaurs now LIVE in the store!",
     },
     {
@@ -159,40 +162,72 @@ Vorso 'Holonomy' is released 18th October 2023, as Inspected's 50th release.`,
       image: "/assets/Classics1.jpg",
       title: "CLASSICS 004 COLLECTION",
       date: "April 26, 2023",
-      images: ["/assets/Classics2.jpg", "/assets/Classics3.jpg", "/assets/Classics4.jpg", "/assets/Classics5.jpg"],
-      content: "The comfiest tracksuit in the world is back! Limited drop Classics 004 now LIVE in the store.",
+      images: [
+        "/assets/Classics2.jpg",
+        "/assets/Classics3.jpg",
+        "/assets/Classics4.jpg",
+        "/assets/Classics5.jpg",
+      ],
+      content:
+        "The comfiest tracksuit in the world is back! Limited drop Classics 004 now LIVE in the store.",
     },
     {
       id: 6,
       image: "/assets/Marblevan1.jpg",
       title: "THE MARBLE CAMPER VAN",
       date: "December 07, 2022",
-      images: ["/assets/Marblevan2.jpg", "/assets/Marblevan3.jpg", "/assets/Marblevan4.jpg", "/assets/Marblevan5.jpg", "/assets/Marblevan6.jpg", "/assets/Marblevan7.jpg", "/assets/Marblevan8.jpg"],
-      content: "One of a kind. The Marble Camper Van is complete and ready for adventures. Get in touch with us via the Contact form for enquiries.",
+      images: [
+        "/assets/Marblevan2.jpg",
+        "/assets/Marblevan3.jpg",
+        "/assets/Marblevan4.jpg",
+        "/assets/Marblevan5.jpg",
+        "/assets/Marblevan6.jpg",
+        "/assets/Marblevan7.jpg",
+        "/assets/Marblevan8.jpg",
+      ],
+      content:
+        "One of a kind. The Marble Camper Van is complete and ready for adventures. Get in touch with us via the Contact form for enquiries.",
     },
     {
       id: 7,
       image: "/assets/Classics003-1.jpg",
       title: "CLASSICS 003 COLLECTION",
       date: "November 23, 2022",
-      images: ["/assets/Classics003-2.jpg", "/assets/Classics003-3.jpg", "/assets/Classics003-4.jpg"],
-      content: "The Classics Reimagined. Limited drop Classics 003 now LIVE in the store.",
+      images: [
+        "/assets/Classics003-2.jpg",
+        "/assets/Classics003-3.jpg",
+        "/assets/Classics003-4.jpg",
+      ],
+      content:
+        "The Classics Reimagined. Limited drop Classics 003 now LIVE in the store.",
     },
     {
       id: 8,
       image: "/assets/Ikea1.jpg",
       title: "THE IKEA TEE",
       date: "November 09, 2022",
-      images: ["/assets/Ikea2.jpg", "/assets/Ikea3.jpg", "/assets/Ikea4.jpg", "/assets/Ikea5.jpg"],
-      content: "Winner for our tee design competion, ready to assemble.The Ikea Tee now LIVE in the store, limited run.",
+      images: [
+        "/assets/Ikea2.jpg",
+        "/assets/Ikea3.jpg",
+        "/assets/Ikea4.jpg",
+        "/assets/Ikea5.jpg",
+      ],
+      content:
+        "Winner for our tee design competion, ready to assemble.The Ikea Tee now LIVE in the store, limited run.",
     },
     {
       id: 9,
       image: "/assets/3m-1.jpg",
       title: "THE 3M DESTROY BAG",
       date: "November 02, 2022",
-      images: ["/assets/3m-2.jpg", "/assets/3m-3.jpg", "/assets/3m-4.jpg", "/assets/3m-5.jpg"],
-      content: "The 3m Reflective is back, this time in bag form! Limited drop Destroy Bag now LIVE in the store.",
+      images: [
+        "/assets/3m-2.jpg",
+        "/assets/3m-3.jpg",
+        "/assets/3m-4.jpg",
+        "/assets/3m-5.jpg",
+      ],
+      content:
+        "The 3m Reflective is back, this time in bag form! Limited drop Destroy Bag now LIVE in the store.",
     },
   ];
 

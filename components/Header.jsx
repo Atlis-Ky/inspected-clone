@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../src/context/CartContext";
 import "./Header.css";
@@ -53,7 +53,7 @@ const Header = ({ onCurrencyChange }) => {
       {/* Promo Banner */}
       {isPromoBannerVisible && (
         <div className={`promo-banner ${isFadingOut ? "fade-out" : ""}`}>
-          <p>Web Clone made in React.js by Atlis-Ky</p>
+          <p>Web Clone made in React.js by Kyle Smith</p>
           <button className="promo-banner-close" onClick={closePromoBanner}>
             ✕
           </button>

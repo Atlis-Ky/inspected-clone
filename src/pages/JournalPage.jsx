@@ -1,4 +1,3 @@
-import React from "react";
 import JournalList from "../../components/JournalList";
 import "./JournalPage.css";
 

@@ -1,4 +1,3 @@
-import React from "react";
 import { useCart } from "../src/context/CartContext";
 import MusicCard from "./MusicCard";
 import "./MusicCard.css";

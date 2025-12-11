@@ -1,4 +1,3 @@
-import React from "react";
 import "./JournalCard.css";
 
 const JournalCard = ({ image, title, date, onClick }) => {

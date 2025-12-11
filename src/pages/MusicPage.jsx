@@ -1,4 +1,3 @@
-import React from "react";
 import MusicList from "../../components/MusicList";
 import "./MusicPage.css";
 
