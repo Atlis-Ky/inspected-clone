@@ -94,7 +94,7 @@
   font-size: 14px;
   font-weight: 600;
   color: #fff;
-  background: #5a5a5a;
+  background: #000;
   text-decoration: none;
   text-align: center;
   padding: 15px;
@@ -103,10 +103,11 @@
   transition: background 0.3s;
   letter-spacing: 1px;
   margin-bottom: 15px;
+  box-sizing: border-box;
 }
 
 .checkout-button:hover {
-  background: #000;
+  background: #5a5a5a;
 }
 
 /* Continue Shopping Link */
