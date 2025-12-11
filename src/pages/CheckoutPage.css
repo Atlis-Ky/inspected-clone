@@ -1,0 +1,459 @@
+/* Checkout Page Container */
+.checkout-page {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: #f9f9f9;
+}
+
+.checkout-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.checkout-content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Left Column - Forms */
+.checkout-forms {
+  background: #fff;
+  padding: 40px;
+  border: 1px solid #e5e5e5;
+}
+
+.checkout-title {
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: #5a5a5a;
+  margin-bottom: 30px;
+}
+
+.checkout-section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #5a5a5a;
+  margin-bottom: 20px;
+}
+
+/* Form Styling */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 14px;
+  color: #5a5a5a;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 15px;
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 14px;
+  color: #5a5a5a;
+  border: 1px solid #d1d1d1;
+  background: #fff;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #5a5a5a;
+}
+
+.form-group input.error,
+.form-group select.error {
+  border-color: #e74c3c;
+}
+
+.error-message {
+  display: block;
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 12px;
+  color: #e74c3c;
+  margin-top: 5px;
+}
+
+/* Shipping Options */
+.free-shipping-notice {
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 14px;
+  color: #27ae60;
+  background: #e8f8f5;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border-left: 3px solid #27ae60;
+}
+
+.shipping-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.shipping-option {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid #d1d1d1;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.shipping-option:hover {
+  border-color: #5a5a5a;
+}
+
+.shipping-option input[type="radio"] {
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.shipping-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+}
+
+.shipping-name {
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 14px;
+  color: #5a5a5a;
+  font-weight: 500;
+}
+
+.shipping-price {
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 14px;
+  color: #5a5a5a;
+  font-weight: 600;
+}
+
+/* Pay Now Button */
+.pay-now-button {
+  width: 100%;
+  padding: 18px;
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background: #5a5a5a;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+  letter-spacing: 1px;
+  margin-top: 20px;
+}
+
+.pay-now-button:hover {
+  background: #000;
+}
+
+/* Right Column - Order Summary */
+.order-summary {
+  background: #fff;
+  padding: 30px;
+  border: 1px solid #e5e5e5;
+  position: sticky;
+  top: 20px;
+}
+
+.summary-title {
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #5a5a5a;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* Summary Items */
+.summary-items {
+  margin-bottom: 25px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.summary-item {
+  display: grid;
+  grid-template-columns: 60px 1fr auto;
+  gap: 15px;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.summary-item:last-child {
+  border-bottom: none;
+}
+
+.summary-item-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+
+.summary-item-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.summary-item-name {
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 14px;
+  color: #5a5a5a;
+  font-weight: 500;
+  margin: 0;
+}
+
+.summary-item-quantity {
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 12px;
+  color: #999;
+  margin: 0;
+}
+
+.summary-item-price {
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 14px;
+  color: #5a5a5a;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Discount Section */
+.discount-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.discount-input {
+  flex: 1;
+  padding: 12px 15px;
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 14px;
+  color: #5a5a5a;
+  border: 1px solid #d1d1d1;
+  background: #fff;
+}
+
+.discount-input:focus {
+  outline: none;
+  border-color: #5a5a5a;
+}
+
+.apply-button {
+  padding: 12px 25px;
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #5a5a5a;
+  background: #fff;
+  border: 1px solid #5a5a5a;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.apply-button:hover {
+  background: #5a5a5a;
+  color: #fff;
+}
+
+.discount-applied {
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 12px;
+  color: #27ae60;
+  margin-bottom: 15px;
+  padding: 8px 12px;
+  background: #e8f8f5;
+  border-left: 3px solid #27ae60;
+}
+
+/* Summary Totals */
+.summary-totals {
+  padding-top: 20px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 14px;
+  color: #5a5a5a;
+  margin-bottom: 12px;
+}
+
+.total-row {
+  font-size: 18px;
+  font-weight: 600;
+  padding-top: 12px;
+  margin-top: 12px;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* Confirmation Modal */
+.confirmation-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+}
+
+.confirmation-modal {
+  background: #fff;
+  padding: 50px 40px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #5a5a5a;
+  transition: color 0.3s;
+}
+
+.modal-close:hover {
+  color: #000;
+}
+
+.confirmation-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  background: #27ae60;
+  color: #fff;
+  font-size: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.confirmation-modal h2 {
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #5a5a5a;
+  margin-bottom: 15px;
+}
+
+.confirmation-modal p {
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 16px;
+  color: #5a5a5a;
+  margin-bottom: 10px;
+}
+
+.order-details {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f9f9f9;
+}
+
+.order-total {
+  font-size: 20px;
+  font-weight: 600;
+  color: #5a5a5a;
+  margin: 20px 0;
+}
+
+.continue-button {
+  padding: 15px 40px;
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background: #5a5a5a;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+  letter-spacing: 1px;
+  margin-top: 20px;
+}
+
+.continue-button:hover {
+  background: #000;
+}
+
+/* Responsive Design - Tablet */
+@media screen and (max-width: 1024px) {
+  .checkout-content {
+    grid-template-columns: 1fr;
+  }
+
+  .order-summary {
+    position: static;
+    order: 2;
+  }
+
+  .checkout-forms {
+    order: 1;
+  }
+}
+
+/* Responsive Design - Mobile */
+@media screen and (max-width: 768px) {
+  .checkout-page {
+    padding: 20px 10px;
+  }
+
+  .checkout-forms,
+  .order-summary {
+    padding: 20px;
+  }
+
+  .checkout-title {
+    font-size: 24px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-items {
+    max-height: 300px;
+  }
+}

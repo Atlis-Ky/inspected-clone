@@ -7,6 +7,7 @@ import GhostHeader from "../components/GhostHeader";
 import Footer from "../components/Footer";
 import StorePage from "./pages/StorePage";
 import CartPage from "./pages/CartPage";
+import CheckoutPage from "./pages/CheckoutPage";
 import MusicPage from "./pages/MusicPage";
 import JournalPage from "./pages/JournalPage";
 import ContactPage from "./pages/ContactPage";
@@ -52,6 +53,7 @@ function App() {
         <Routes>
           <Route path="/" element={<StorePage currency={selectedCurrency} />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
           <Route
             path="/music"
             element={<MusicPage currency={selectedCurrency} />}
