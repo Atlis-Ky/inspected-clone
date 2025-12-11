@@ -26,9 +26,9 @@
 
 .checkout-title {
   font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 600;
-  color: #5a5a5a;
+  color: #000;
   margin-bottom: 30px;
 }
 
@@ -40,7 +40,7 @@
   font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
   font-size: 18px;
   font-weight: 600;
-  color: #5a5a5a;
+  color: #000;
   margin-bottom: 20px;
 }
 
@@ -150,6 +150,88 @@
   font-size: 14px;
   color: #5a5a5a;
   font-weight: 600;
+}
+
+/* Payment Method */
+.payment-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.payment-method-option {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border: 2px solid #d1d1d1;
+  cursor: pointer;
+  transition: border-color 0.3s;
+  background: #fff;
+}
+
+.payment-method-option:hover {
+  border-color: #5a5a5a;
+}
+
+.payment-method-option input[type="radio"] {
+  margin-right: 15px;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
+.payment-method-option input[type="radio"]:checked + .payment-label {
+  font-weight: 600;
+}
+
+.payment-label {
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 15px;
+  color: #5a5a5a;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.paypal-icon {
+  width: 50px;
+  height: auto;
+}
+
+/* Card Details */
+.card-details {
+  margin-top: 20px;
+  padding: 25px;
+  background: #f9f9f9;
+  border: 1px solid #e5e5e5;
+}
+
+.card-details .form-group {
+  margin-bottom: 20px;
+}
+
+.card-details .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+/* PayPal Message */
+.paypal-message {
+  margin-top: 20px;
+  padding: 20px;
+  background: #fff9e6;
+  border: 1px solid #ffd966;
+  border-left: 3px solid #ffd966;
+}
+
+.paypal-message p {
+  font-family: Helvetica, Helvetica Neue, Arial, Lucida Grande, sans-serif;
+  font-size: 14px;
+  color: #5a5a5a;
+  margin: 0;
 }
 
 /* Pay Now Button */

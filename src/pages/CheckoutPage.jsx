@@ -19,8 +19,16 @@ const CheckoutPage = () => {
   const [discountAmount, setDiscountAmount] = useState(0);
   const [discountError, setDiscountError] = useState("");
 
+  // Payment state
+  const [paymentMethod, setPaymentMethod] = useState("card");
+  const [cardNumber, setCardNumber] = useState("");
+  const [cardName, setCardName] = useState("");
+  const [expiryDate, setExpiryDate] = useState("");
+  const [cvv, setCvv] = useState("");
+
   // Modal state
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const [showPayPalModal, setShowPayPalModal] = useState(false);
   const [errors, setErrors] = useState({});
 
   const subtotal = getCartSubtotal();
@@ -59,6 +67,23 @@ const CheckoutPage = () => {
     if (!city.trim()) newErrors.city = "City is required";
     if (!postalCode.trim()) newErrors.postalCode = "Postal code is required";
     if (!country.trim()) newErrors.country = "Country is required";
+
+    // Validate payment for card method
+    if (paymentMethod === "card") {
+      if (!cardNumber.trim() || cardNumber.replace(/\s/g, "").length !== 16) {
+        newErrors.cardNumber = "Valid 16-digit card number is required";
+      }
+      if (!cardName.trim()) newErrors.cardName = "Cardholder name is required";
+      if (
+        !expiryDate.trim() ||
+        !/^(0[1-9]|1[0-2])\/([0-9]{2})$/.test(expiryDate)
+      ) {
+        newErrors.expiryDate = "Valid expiry date (MM/YY) is required";
+      }
+      if (!cvv.trim() || !/^[0-9]{3,4}$/.test(cvv)) {
+        newErrors.cvv = "Valid CVV is required";
+      }
+    }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -99,13 +124,21 @@ const CheckoutPage = () => {
     e.preventDefault();
 
     if (validateForm()) {
-      setShowConfirmation(true);
+      if (paymentMethod === "paypal") {
+        setShowPayPalModal(true);
+      } else {
+        setShowConfirmation(true);
+      }
     }
   };
 
   // Close confirmation modal
   const closeConfirmation = () => {
     setShowConfirmation(false);
+  };
+
+  const closePayPalModal = () => {
+    setShowPayPalModal(false);
   };
 
   if (cartItems.length === 0) {
@@ -130,7 +163,7 @@ const CheckoutPage = () => {
             <form onSubmit={handlePayNow}>
               {/* Contact Information */}
               <section className="checkout-section">
-                <h2 className="section-title">Contact Information</h2>
+                <h2 className="section-title">Contact</h2>
                 <div className="form-group">
                   <label htmlFor="email">Email</label>
                   <input
@@ -289,9 +322,139 @@ const CheckoutPage = () => {
                 </div>
               </section>
 
+              {/* Payment Method */}
+              <section className="checkout-section">
+                <h2 className="section-title">Payment Method</h2>
+
+                <div className="payment-methods">
+                  <label className="payment-method-option">
+                    <input
+                      type="radio"
+                      name="payment"
+                      value="card"
+                      checked={paymentMethod === "card"}
+                      onChange={(e) => setPaymentMethod(e.target.value)}
+                    />
+                    <span className="payment-label">Credit/Debit Card</span>
+                  </label>
+
+                  <label className="payment-method-option">
+                    <input
+                      type="radio"
+                      name="payment"
+                      value="paypal"
+                      checked={paymentMethod === "paypal"}
+                      onChange={(e) => setPaymentMethod(e.target.value)}
+                    />
+                    <span className="payment-label">PayPal</span>
+                  </label>
+                </div>
+
+                {/* Card Details Form */}
+                {paymentMethod === "card" && (
+                  <div className="card-details">
+                    <div className="form-group">
+                      <label htmlFor="cardNumber">Card Number</label>
+                      <input
+                        type="text"
+                        id="cardNumber"
+                        value={cardNumber}
+                        onChange={(e) => {
+                          const value = e.target.value.replace(/\s/g, "");
+                          if (/^\d{0,16}$/.test(value)) {
+                            const formatted =
+                              value.match(/.{1,4}/g)?.join(" ") || value;
+                            setCardNumber(formatted);
+                          }
+                        }}
+                        placeholder="1234 5678 9012 3456"
+                        maxLength="19"
+                        className={errors.cardNumber ? "error" : ""}
+                      />
+                      {errors.cardNumber && (
+                        <span className="error-message">
+                          {errors.cardNumber}
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="form-group">
+                      <label htmlFor="cardName">Cardholder Name</label>
+                      <input
+                        type="text"
+                        id="cardName"
+                        value={cardName}
+                        onChange={(e) => setCardName(e.target.value)}
+                        placeholder="John Smith"
+                        className={errors.cardName ? "error" : ""}
+                      />
+                      {errors.cardName && (
+                        <span className="error-message">{errors.cardName}</span>
+                      )}
+                    </div>
+
+                    <div className="form-row">
+                      <div className="form-group">
+                        <label htmlFor="expiryDate">Expiry Date</label>
+                        <input
+                          type="text"
+                          id="expiryDate"
+                          value={expiryDate}
+                          onChange={(e) => {
+                            let value = e.target.value.replace(/\D/g, "");
+                            if (value.length >= 2) {
+                              value =
+                                value.slice(0, 2) + "/" + value.slice(2, 4);
+                            }
+                            setExpiryDate(value);
+                          }}
+                          placeholder="MM/YY"
+                          maxLength="5"
+                          className={errors.expiryDate ? "error" : ""}
+                        />
+                        {errors.expiryDate && (
+                          <span className="error-message">
+                            {errors.expiryDate}
+                          </span>
+                        )}
+                      </div>
+
+                      <div className="form-group">
+                        <label htmlFor="cvv">CVV</label>
+                        <input
+                          type="text"
+                          id="cvv"
+                          value={cvv}
+                          onChange={(e) => {
+                            const value = e.target.value.replace(/\D/g, "");
+                            if (value.length <= 4) setCvv(value);
+                          }}
+                          placeholder="123"
+                          maxLength="4"
+                          className={errors.cvv ? "error" : ""}
+                        />
+                        {errors.cvv && (
+                          <span className="error-message">{errors.cvv}</span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* PayPal Message */}
+                {paymentMethod === "paypal" && (
+                  <div className="paypal-message">
+                    <p>
+                      You will be redirected to PayPal to complete your purchase
+                      securely.
+                    </p>
+                  </div>
+                )}
+              </section>
+
               {/* Pay Now Button */}
               <button type="submit" className="pay-now-button">
-                PAY NOW
+                {paymentMethod === "paypal" ? "CONTINUE TO PAYPAL" : "PAY NOW"}
               </button>
             </form>
           </div>
@@ -398,6 +561,32 @@ const CheckoutPage = () => {
             </p>
             <p className="order-total">Total: £{total.toFixed(2)}</p>
             <button className="continue-button" onClick={closeConfirmation}>
+              Continue Shopping
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* PayPal Modal */}
+      {showPayPalModal && (
+        <div className="confirmation-modal-backdrop" onClick={closePayPalModal}>
+          <div
+            className="confirmation-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button className="modal-close" onClick={closePayPalModal}>
+              ✕
+            </button>
+            <div className="confirmation-icon">ℹ️</div>
+            <h2>Thank You!</h2>
+            <p>Thank you for completing your purchase.</p>
+            <p className="order-details">
+              In a real store, we would redirect you to PayPal to complete your
+              payment. However, as this is a portfolio piece, we'll keep you
+              here on this site!
+            </p>
+            <p className="order-total">Order Total: £{total.toFixed(2)}</p>
+            <button className="continue-button" onClick={closePayPalModal}>
               Continue Shopping
             </button>
           </div>
