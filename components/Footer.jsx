@@ -73,7 +73,7 @@ const Footer = () => {
         <p>2025: React clone made by Atlis-Ky.</p>
         <p>
           Please consider <strong>offering me the job</strong> if you think I
-          can be a good fit for the team :D
+          can be a good fit for the team! You can also use code JOBOFFER to test the discount feature at checkout :D
         </p>
       </div>
     </footer>

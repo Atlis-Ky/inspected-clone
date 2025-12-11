@@ -16,12 +16,23 @@ const CheckoutPage = () => {
   const [shippingMethod, setShippingMethod] = useState("standard");
   const [discountCode, setDiscountCode] = useState("");
   const [discountApplied, setDiscountApplied] = useState(false);
+  const [discountAmount, setDiscountAmount] = useState(0);
+  const [discountError, setDiscountError] = useState("");
 
   // Modal state
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [errors, setErrors] = useState({});
 
   const subtotal = getCartSubtotal();
+
+  // Discount codes configuration
+  const discountCodes = {
+    DISCOUNT10: { type: "percentage", value: 10 },
+    DISCOUNT20: { type: "percentage", value: 20 },
+    JOBOFFER: { type: "percentage", value: 15 },
+    SAVE5: { type: "fixed", value: 5 },
+    SAVE10: { type: "fixed", value: 10 },
+  };
 
   // Calculate shipping
   const getShippingCost = () => {
@@ -32,7 +43,8 @@ const CheckoutPage = () => {
   };
 
   const shippingCost = getShippingCost();
-  const total = subtotal + shippingCost;
+  const subtotalAfterDiscount = Math.max(0, subtotal - discountAmount);
+  const total = subtotalAfterDiscount + shippingCost;
 
   // Validate form
   const validateForm = () => {
@@ -54,9 +66,31 @@ const CheckoutPage = () => {
 
   // Handle discount code
   const applyDiscount = () => {
-    // Placeholder - you can implement actual discount logic here
-    if (discountCode.trim()) {
+    const code = discountCode.trim().toUpperCase();
+
+    if (!code) {
+      setDiscountError("Please enter a discount code");
+      return;
+    }
+
+    const discount = discountCodes[code];
+
+    if (discount) {
+      let amount = 0;
+
+      if (discount.type === "percentage") {
+        amount = (subtotal * discount.value) / 100;
+      } else if (discount.type === "fixed") {
+        amount = discount.value;
+      }
+
+      setDiscountAmount(amount);
       setDiscountApplied(true);
+      setDiscountError("");
+    } else {
+      setDiscountError("Invalid discount code");
+      setDiscountApplied(false);
+      setDiscountAmount(0);
     }
   };
 
@@ -214,7 +248,7 @@ const CheckoutPage = () => {
 
                 {subtotal >= 100 && (
                   <div className="free-shipping-notice">
-                   FREE SHIPPING available for this basket!
+                    FREE SHIPPING available for this basket!
                   </div>
                 )}
 
@@ -306,8 +340,14 @@ const CheckoutPage = () => {
               </button>
             </div>
 
+            {discountError && (
+              <div className="discount-error">{discountError}</div>
+            )}
+
             {discountApplied && (
-              <div className="discount-applied">Discount code applied!</div>
+              <div className="discount-applied">
+                Discount code "{discountCode.toUpperCase()}" applied!
+              </div>
             )}
 
             {/* Totals */}
@@ -316,6 +356,12 @@ const CheckoutPage = () => {
                 <span>Subtotal</span>
                 <span>£{subtotal.toFixed(2)}</span>
               </div>
+              {discountApplied && discountAmount > 0 && (
+                <div className="summary-row discount-row">
+                  <span>Discount</span>
+                  <span>-£{discountAmount.toFixed(2)}</span>
+                </div>
+              )}
               <div className="summary-row">
                 <span>Shipping</span>
                 <span>
