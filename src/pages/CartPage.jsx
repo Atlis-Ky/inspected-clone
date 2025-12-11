@@ -5,7 +5,7 @@ import CartItem from "../../components/CartItem";
 import "./CartPage.css";
 
 const CartPage = () => {
-  const { cartItems, updateQuantity, removeFromCart, getCartSubtotal } =
+  const { cartItems, updateQuantity, removeFromCart, clearCart, getCartSubtotal } =
     useCart();
 
   const subtotal = getCartSubtotal();
@@ -34,6 +34,9 @@ const CartPage = () => {
                   onRemove={removeFromCart}
                 />
               ))}
+              <button className="clear-cart-button" onClick={clearCart}>
+                CLEAR CART
+              </button>
             </div>
 
             {/* Cart Summary */}
