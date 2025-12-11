@@ -5,8 +5,13 @@ import CartItem from "../../components/CartItem";
 import "./CartPage.css";
 
 const CartPage = () => {
-  const { cartItems, updateQuantity, removeFromCart, clearCart, getCartSubtotal } =
-    useCart();
+  const {
+    cartItems,
+    updateQuantity,
+    removeFromCart,
+    clearCart,
+    getCartSubtotal,
+  } = useCart();
 
   const subtotal = getCartSubtotal();
 
