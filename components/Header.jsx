@@ -136,10 +136,10 @@ const Header = ({ onCurrencyChange }) => {
 
       {/* Login Modal */}
       {isModalOpen && (
-        <div className="modal">
-          <div className="modal-content">
+        <div className="modal" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close" onClick={closeModal}>
-              Exit
+              ✕
             </button>
             <h2>Login</h2>
             <form onSubmit={handleLoginSubmit}>
