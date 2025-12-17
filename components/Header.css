@@ -253,3 +253,10 @@
 .modal-close:hover {
   color: #000;
 }
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  .logo-container {
+    margin-top: 15px;
+  }
+}
