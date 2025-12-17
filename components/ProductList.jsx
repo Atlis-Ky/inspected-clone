@@ -29,7 +29,7 @@ const ProductList = ({ currency }) => {
         primaryImage: product.primary_image,
         secondaryImage: product.secondary_image,
         name: product.name,
-        price: product.price.toString(),
+        price: parseFloat(product.price).toFixed(2),
       }));
 
       setProducts(transformedProducts);

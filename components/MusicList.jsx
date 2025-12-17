@@ -28,7 +28,7 @@ const MusicList = ({ currency }) => {
         id: item.id,
         image: item.image,
         name: item.name,
-        price: item.price.toString(),
+        price: parseFloat(item.price).toFixed(2),
       }));
 
       setMusicItems(transformedMusic);
