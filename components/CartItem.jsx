@@ -1,6 +1,7 @@
+import { formatPrice } from "../src/utils/currency";
 import "./CartItem.css";
 
-const CartItem = ({ item, onUpdateQuantity, onRemove }) => {
+const CartItem = ({ item, currency = "GBP", onUpdateQuantity, onRemove }) => {
   const handleDecrease = () => {
     onUpdateQuantity(item.id, item.quantity - 1);
   };
@@ -23,7 +24,7 @@ const CartItem = ({ item, onUpdateQuantity, onRemove }) => {
       {/* Product Details */}
       <div className="cart-item-details">
         <h3 className="cart-item-name">{item.name}</h3>
-        <p className="cart-item-price">£{item.price.toFixed(2)}</p>
+        <p className="cart-item-price">{formatPrice(item.price, currency)}</p>
       </div>
 
       {/* Quantity Controls */}
@@ -47,7 +48,7 @@ const CartItem = ({ item, onUpdateQuantity, onRemove }) => {
 
       {/* Item Total */}
       <div className="cart-item-total">
-        <p>£{(item.price * item.quantity).toFixed(2)}</p>
+        <p>{formatPrice(item.price * item.quantity, currency)}</p>
       </div>
 
       {/* Remove Button */}

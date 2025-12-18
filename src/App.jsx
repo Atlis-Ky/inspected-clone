@@ -52,8 +52,14 @@ function App() {
         {/* Routes */}
         <Routes>
           <Route path="/" element={<StorePage currency={selectedCurrency} />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/checkout" element={<CheckoutPage />} />
+          <Route
+            path="/cart"
+            element={<CartPage currency={selectedCurrency} />}
+          />
+          <Route
+            path="/checkout"
+            element={<CheckoutPage currency={selectedCurrency} />}
+          />
           <Route
             path="/music"
             element={<MusicPage currency={selectedCurrency} />}

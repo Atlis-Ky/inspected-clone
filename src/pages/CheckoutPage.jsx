@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useCart } from "../context/CartContext";
+import { formatPrice, getCurrencySymbol } from "../utils/currency";
 import "./CheckoutPage.css";
 
-const CheckoutPage = () => {
+const CheckoutPage = ({ currency = "GBP" }) => {
   const { cartItems, getCartSubtotal } = useCart();
 
   // Form state
@@ -479,7 +480,7 @@ const CheckoutPage = () => {
                     </p>
                   </div>
                   <p className="summary-item-price">
-                    £{(item.price * item.quantity).toFixed(2)}
+                    {formatPrice(item.price * item.quantity, currency)}
                   </p>
                 </div>
               ))}
@@ -517,23 +518,25 @@ const CheckoutPage = () => {
             <div className="summary-totals">
               <div className="summary-row">
                 <span>Subtotal</span>
-                <span>£{subtotal.toFixed(2)}</span>
+                <span>{formatPrice(subtotal, currency)}</span>
               </div>
               {discountApplied && discountAmount > 0 && (
                 <div className="summary-row discount-row">
                   <span>Discount</span>
-                  <span>-£{discountAmount.toFixed(2)}</span>
+                  <span>-{formatPrice(discountAmount, currency)}</span>
                 </div>
               )}
               <div className="summary-row">
                 <span>Shipping</span>
                 <span>
-                  {shippingCost === 0 ? "FREE" : `£${shippingCost.toFixed(2)}`}
+                  {shippingCost === 0
+                    ? "FREE"
+                    : formatPrice(shippingCost, currency)}
                 </span>
               </div>
               <div className="summary-row total-row">
                 <span>Total</span>
-                <span>£{total.toFixed(2)}</span>
+                <span>{formatPrice(total, currency)}</span>
               </div>
             </div>
           </div>
@@ -559,7 +562,7 @@ const CheckoutPage = () => {
             <p className="order-details">
               A confirmation email has been sent to <strong>{email}</strong>
             </p>
-            <p className="order-total">Total: £{total.toFixed(2)}</p>
+            <p className="order-total">Total: {formatPrice(total, currency)}</p>
             <button className="continue-button" onClick={closeConfirmation}>
               Continue Shopping
             </button>
@@ -585,7 +588,9 @@ const CheckoutPage = () => {
               payment. However, as this is a portfolio piece, we'll keep you
               here on this site!
             </p>
-            <p className="order-total">Order Total: £{total.toFixed(2)}</p>
+            <p className="order-total">
+              Order Total: {formatPrice(total, currency)}
+            </p>
             <button className="continue-button" onClick={closePayPalModal}>
               Continue Shopping
             </button>

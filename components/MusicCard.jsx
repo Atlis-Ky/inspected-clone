@@ -1,18 +1,9 @@
 import { useState } from "react";
+import { formatPrice } from "../src/utils/currency";
 import "./MusicCard.css";
 
 const MusicCard = ({ image, name, price, currency, onAddToCart }) => {
   const [isHovered, setIsHovered] = useState(false);
-
-  const getCurrencySymbol = () => {
-    if (currency === "USD") return "$";
-    if (currency === "AUD") return "AU$";
-    if (currency === "GBP") return "£";
-    if (currency === "EUR") return "€";
-    if (currency === "JPY") return "¥";
-    if (currency === "CAD") return "CA$";
-    return "£"; // Default to GBP
-  };
 
   return (
     <div
@@ -30,10 +21,7 @@ const MusicCard = ({ image, name, price, currency, onAddToCart }) => {
       ) : (
         <>
           <div className="music-name">{name}</div>
-          <div className="music-price">
-            {getCurrencySymbol()}
-            {price}
-          </div>
+          <div className="music-price">{formatPrice(price, currency)}</div>
         </>
       )}
     </div>

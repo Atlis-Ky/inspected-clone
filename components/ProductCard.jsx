@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Header from "./Header.jsx";
+import { formatPrice } from "../src/utils/currency";
 import "./ProductCard.css";
 
 const ProductCard = ({
@@ -12,18 +12,6 @@ const ProductCard = ({
 }) => {
   const [currentImage, setCurrentImage] = useState(primaryImage);
   const [isHovered, setIsHovered] = useState(false);
-
-  // Determine the currency symbol
-
-  const getCurrencySymbol = () => {
-    if (currency === "USD") return "$";
-    if (currency === "AUD") return "AU$";
-    if (currency === "GBP") return "£";
-    if (currency === "EUR") return "€";
-    if (currency === "JPY") return "¥";
-    if (currency === "CAD") return "CA$";
-    return "£"; // Default to GBP
-  };
 
   useEffect(() => {
     let interval;
@@ -62,10 +50,7 @@ const ProductCard = ({
       ) : (
         <>
           <div className="product-name">{name}</div>
-          <div className="product-price">
-            {getCurrencySymbol()}
-            {price}
-          </div>
+          <div className="product-price">{formatPrice(price, currency)}</div>
         </>
       )}
     </div>

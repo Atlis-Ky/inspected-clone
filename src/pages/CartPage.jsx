@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
+import { formatPrice } from "../utils/currency";
 import CartItem from "../../components/CartItem";
 import "./CartPage.css";
 
-const CartPage = () => {
+const CartPage = ({ currency = "GBP" }) => {
   const {
     cartItems,
     updateQuantity,
@@ -34,6 +35,7 @@ const CartPage = () => {
                 <CartItem
                   key={item.id}
                   item={item}
+                  currency={currency}
                   onUpdateQuantity={updateQuantity}
                   onRemove={removeFromCart}
                 />
@@ -47,7 +49,9 @@ const CartPage = () => {
             <div className="cart-summary">
               <div className="cart-subtotal">
                 <span className="subtotal-label">Subtotal:</span>
-                <span className="subtotal-amount">£{subtotal.toFixed(2)}</span>
+                <span className="subtotal-amount">
+                  {formatPrice(subtotal, currency)}
+                </span>
               </div>
 
               <p className="cart-note">
